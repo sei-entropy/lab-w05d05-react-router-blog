@@ -6,8 +6,8 @@ class Author extends Component {
       <div>
         <p>Written by {this.props.author}</p>
       </div>
-    )
+    );
   }
 }
 
-export default Author
+export default Author;

@@ -4,34 +4,33 @@ import Comment from './Comment.js';
 import Author from './Author.js';
 
 class Post extends Component {
-
-  constructor (props) {
-    super()
+  constructor(props) {
+    super();
     this.state = {
       body: props.body
-    }
+    };
   }
-  changeBody (e) {
-    let newBody = prompt("What should the new body be?")
+  changeBody = (e) => {
+    let newBody = prompt("What should the new body be?");
     this.setState({
       body: newBody
-    })
+    });
   }
 
   render() {
-    let authors = [
+    const authors = [
       <Author author={this.props.allAuthors[0]}/>,
       <Author author={this.props.allAuthors[1]}/>,
       <Author author={this.props.allAuthors[2]}/>
-    ]
+    ];
 
     /**
      * Bonus: using .map!
      * @type {Array}
      */
-    // let authors = this.props.allAuthors.map( (author, index) => (
+    // const authors = this.props.allAuthors.map( (author, index) => (
     //   <Author author={author} key={index} />
-    // ))
+    // ));
 
     return (
       <div>
@@ -39,13 +38,13 @@ class Post extends Component {
         {authors}
         <div>
           <p>{this.state.body}</p>
-          <button onClick={(e) => this.changeBody(e)}>Edit Body</button>
+          <button onClick={this.changeBody}>Edit Body</button>
         </div>
         <h3>Comments:</h3>
         <Comment body={this.props.comments[0]} />
       </div>
-    )
+    );
   }
 }
 
-export default Post
+export default Post;
